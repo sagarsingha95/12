@@ -1,13 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 
-const StarRating = ({maxRating=5,color="#fcc",size=48, messages =[]}) => {
+const StarRating = ({maxRating=5,color="#fcc",size=48, messages =[],onSetRating}) => {
 
-    const [rating,setRating] = useState(1);
+    const [rating,setRating] = useState(0);
     const [tempRating,setTempRating] = useState(0);
 
     function handleRating(rating){
         setRating(rating);
+        onSetRating?.(rating);
     }
 
     const containerStyle ={
